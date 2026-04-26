@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F8F9FA;
+  --foreground: #212529;
+
+  --primary: #0B8F3A;
+  --secondary: #FFC107;
+  --accent: #0D1B2A;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins);
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  font-family: var(--font-poppins) !important;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: normal;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: white;
+}
