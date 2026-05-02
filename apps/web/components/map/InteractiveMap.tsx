@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import { MapPin, Star, Heart } from "lucide-react";
@@ -28,22 +28,17 @@ function MapController({ center }: { center: [number, number] }) {
   return null;
 }
 
+const DEFAULT_CENTER: [number, number] = [9.0820, 8.6753];
+
 export default function InteractiveMap() {
-  const { data: location, isLoading } = useUserLocationQuery();
-
-  const [center, setCenter] = useState<[number, number]>([9.0820, 8.6753]);
-
-  useEffect(() => {
-    if (location) {
-      setCenter(location);
-    }
-  }, [location]);
+  const { data: location } = useUserLocationQuery();
+  const center = location || DEFAULT_CENTER;
 
   return (
     <div className="absolute inset-0 z-0">
       <MapContainer
         center={center}
-        zoom={6}
+        zoom={location ? 13 : 6}
         style={{ height: "100%", width: "100%", background: "#e5eedd" }}
         zoomControl={false}
       >

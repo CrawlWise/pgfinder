@@ -1,32 +1,48 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { NavbarItem } from '@/components/types/website'
+import { Search, Menu } from 'lucide-react'
 
 function NavbarMain() {
-  const NAVBARMAIN: NavbarItem[] = [
+  const NAVBAR_LINKS = [
     { name: "Explore", link: "/explore" },
-    { name: "Stations", link: "/stations" }
+    { name: "Stations", link: "/stations" },
+    { name: "Orders", link: "#" }
   ]
 
   return (
-    <div className='tabs-navigation flex justify-between items-center p-4'>
-      <div className='flex items-center'>
-        <div className='tab-group flex gap-4'>
-          {NAVBARMAIN.map((item, index) => (
-            <Link key={index} href={item.link} className="font-medium hover:text-[#0B8F3A] transition-colors">{item.name}</Link>
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur-md shadow-sm">
+      <div className="flex items-center gap-12">
+        <Link href="/explore" className="text-2xl font-black tracking-tighter text-[#006B28] font-headline">
+          PGFinder
+        </Link>
+
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex gap-8 items-center">
+          {NAVBAR_LINKS.map((item) => (
+            <Link
+              key={item.name}
+              href={item.link}
+              className="text-[#505D6F] font-bold hover:text-[#006B28] transition-all px-2 py-1 rounded-lg"
+            >
+              {item.name}
+            </Link>
           ))}
-        </div>
-        <div className='tab-indicator'>
-
-        </div>
+        </nav>
       </div>
 
-      <div className='nav-actions flex gap-4 items-center'>
-        <button className='search-btn font-medium hover:text-[#0B8F3A] transition-colors'>Search</button>
-        <button className='signup-btn bg-[#0B8F3A] text-white px-4 py-2 rounded font-medium hover:bg-[#09732f] transition-colors'>Sign Up</button>
+      <div className="flex items-center gap-4">
+        <button className="p-2.5 rounded-full hover:bg-gray-100 transition-all active:scale-90 group">
+          <Search className="w-5 h-5 text-[#505D6F] group-hover:text-[#006B28] transition-colors" />
+        </button>
+        <button className="hidden md:flex bg-gradient-to-br from-[#006B28] to-[#008735] text-white px-8 py-3 rounded-2xl font-black transition-all active:scale-95 shadow-lg shadow-[#006B28]/20">
+          Sign Up
+        </button>
+        <button className="md:hidden p-2.5 rounded-full hover:bg-gray-100 transition-all">
+          <Menu className="w-6 h-6 text-[#505D6F]" />
+        </button>
       </div>
-    </div>
+    </header>
   )
 }
 

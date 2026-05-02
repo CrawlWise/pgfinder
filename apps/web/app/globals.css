@@ -2,33 +2,68 @@
 
 :root {
   --background: #F8F9FA;
-  --foreground: #212529;
+  --foreground: #191C1D;
 
-  --primary: #0B8F3A;
-  --secondary: #FFC107;
-  --accent: #0D1B2A;
+  --primary: #006B28;
+  --primary-container: #008735;
+  --secondary: #785900;
+  --secondary-container: #FDC003;
+  --tertiary: #505D6F;
 
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
+  --surface: #F8F9FA;
+  --surface-container-low: #F3F4F5;
+  --surface-container-lowest: #FFFFFF;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1.5rem;
+}
+
+@theme {
+  --font-headline: var(--font-headline), ui-sans-serif, system-ui;
+  --font-body: var(--font-body), ui-sans-serif, system-ui;
+  --font-label: var(--font-body), ui-sans-serif, system-ui;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Leaflet Overrides */
+h1, h2, h3, h4, .font-headline {
+  font-family: var(--font-headline);
+}
+
+/* Fluid Energy Framework Utility Classes */
+.glass-shell {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Leaflet Overrides for Editorial Aesthetic */
 .leaflet-container {
-  font-family: var(--font-poppins) !important;
+  font-family: var(--font-body) !important;
+  background-color: #d9dadb !important;
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
   padding: 0;
-  border-radius: 12px;
+  border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(13, 27, 42, 0.12);
+  border: none;
 }
 
 .custom-popup .leaflet-popup-content {
@@ -36,6 +71,6 @@ body {
   line-height: normal;
 }
 
-.custom-popup .leaflet-popup-tip {
-  background: white;
+.custom-popup .leaflet-popup-tip-container {
+  display: none;
 }
