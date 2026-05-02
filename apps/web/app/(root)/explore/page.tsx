@@ -1,10 +1,19 @@
-import React from 'react'
+"use client";
 
-export default function Page() {
-    return (
-        <div className="p-8">
-            <h1 className="text-2xl font-bold mb-4 text-[#0B8F3A]">Explore Gas Sellers</h1>
-            <p className="text-[#212529]">Discover gas sellers and delivery services near your location.</p>
-        </div>
-    )
+import React from "react";
+import InteractiveMap from "@/components/map/InteractiveMap";
+import MapOverlays from "@/components/map/MapOverlays";
+
+export default function ExplorePage() {
+  return (
+    <main className="relative h-[calc(100vh-64px)] w-full overflow-hidden bg-[#f3f4f5]">
+      {/* Map Layer */}
+      <InteractiveMap />
+
+      {/* Floating UI Overlays */}
+      <MapOverlays />
+
+      {/* Mobile Bottom Navigation Hint (if needed, but shared component handles it) */}
+    </main>
+  );
 }
