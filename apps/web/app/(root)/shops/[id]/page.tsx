@@ -16,31 +16,33 @@ import Link from "next/link";
 export default function ShopDetailsPage() {
   return (
     <div className="bg-[#f8f9fa] min-h-screen pb-24">
-      {/* Top Header */}
-      <header className="sticky top-0 z-50 flex items-center justify-between px-6 h-16 bg-white/80 backdrop-blur-md shadow-sm">
-        <div className="flex items-center gap-4">
-          <Link href="/explore" className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <ChevronLeft className="w-6 h-6" />
-          </Link>
-          <span className="text-xl font-bold tracking-tight text-[#191c1d] font-headline">Fluid Energy</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <Bell className="w-5 h-5 text-gray-500" />
-          </button>
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <ShoppingCart className="w-5 h-5 text-gray-500" />
-          </button>
+      {/* Top Header - Frosted Glass */}
+      <header className="sticky top-0 z-50 glass-nav shadow-ambient h-16 flex items-center">
+        <div className="flex items-center justify-between w-full px-6 max-w-7xl mx-auto">
+          <div className="flex items-center gap-4">
+            <Link href="/explore" className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <ChevronLeft className="w-6 h-6 text-[#505d6f]" />
+            </Link>
+            <span className="text-xl font-bold tracking-tight text-[#191c1d] font-headline">Fluid Energy</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <Bell className="w-5 h-5 text-gray-400" />
+            </button>
+            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <ShoppingCart className="w-5 h-5 text-gray-400" />
+            </button>
+          </div>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto mt-6">
         {/* Hero Section - Carousel Simulation */}
-        <section className="relative w-full h-[400px] md:h-[600px] overflow-hidden md:rounded-[2rem] px-0 md:px-8">
-          <div className="w-full h-full md:rounded-[2rem] overflow-hidden">
+        <section className="relative w-full h-[400px] md:h-[600px] overflow-hidden md:rounded-xl px-0 md:px-8">
+          <div className="w-full h-full md:rounded-xl overflow-hidden">
              <img
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover shadow-ambient"
               alt="Lagos Premium Gas"
             />
           </div>
@@ -51,35 +53,35 @@ export default function ShopDetailsPage() {
           </div>
         </section>
 
-        {/* Shop Info Card */}
+        {/* Shop Info Card - Lowest on Low Background */}
         <section className="px-6 -mt-12 relative z-10">
-          <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+          <div className="bg-white p-8 rounded-xl shadow-ambient border border-gray-100/15">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-2">
                   <h1 className="text-3xl font-extrabold font-headline tracking-tight text-[#191c1d]">Lagos Premium Gas</h1>
-                  <div className="flex items-center gap-1 bg-[#ffdf9e] text-[#261a00] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide font-label">
-                    <Verified className="w-3 h-3 fill-[#261a00] text-[#261a00]" />
-                    Verified Vendor
+                  <div className="inline-flex items-center gap-1 chip-verified shadow-sm">
+                    <Verified className="w-3.5 h-3.5 fill-current" />
+                    <span>Verified Vendor</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 text-[#505d6f]">
+                <div className="flex items-center gap-4 text-[#505d6f] opacity-80">
                   <div className="flex items-center gap-1 text-[#785900]">
                     <Star className="w-4 h-4 fill-[#fdc003] text-[#fdc003]" />
                     <span className="font-bold">4.8</span>
                   </div>
                   <span className="text-sm">·</span>
-                  <span className="text-sm">2.4k Reviews</span>
+                  <span className="text-sm font-medium">2.4k Reviews</span>
                   <span className="text-sm">·</span>
                   <span className="text-sm font-medium">Lekki Phase 1, Lagos</span>
                 </div>
               </div>
               <div className="flex gap-3">
-                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-[#f3f4f5] text-[#191c1d] font-bold rounded-xl hover:bg-gray-200 transition-all active:scale-95">
+                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-[#f3f4f5] text-[#191c1d] font-bold rounded-xl hover:bg-gray-200 transition-all active:scale-95 shadow-sm">
                   <Phone className="w-5 h-5" />
                   Call Shop
                 </button>
-                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-br from-[#006b28] to-[#008735] text-white font-bold rounded-xl shadow-lg transition-all active:scale-95">
+                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-primary-gradient text-white font-bold rounded-xl shadow-ambient transition-all active:scale-95">
                   <Truck className="w-5 h-5" />
                   Request Delivery
                 </button>
@@ -103,14 +105,14 @@ export default function ShopDetailsPage() {
                   { size: "25KG", stock: 100 },
                   { size: "50KG", stock: 0 },
                 ].map((item, idx) => (
-                  <div key={idx} className={`bg-[#f3f4f5] p-6 rounded-3xl text-center transition-all ${item.stock > 0 ? 'border-b-4 border-[#006b28]' : 'border-b-4 border-gray-300 opacity-60'}`}>
-                    <span className="text-xs font-extrabold text-[#505d6f] font-label tracking-widest">{item.size}</span>
+                  <div key={idx} className={`bg-[#f3f4f5] p-6 rounded-xl text-center transition-all ${item.stock > 0 ? 'border-b-4 border-[#006b28]' : 'border-b-4 border-gray-300 opacity-60'}`}>
+                    <span className="text-xs font-black text-[#505d6f] font-label tracking-widest opacity-60 uppercase">{item.size}</span>
                     <div className="my-6 h-20 flex items-end justify-center">
                       <div className={`w-10 bg-[#006b28]/10 rounded-t-xl relative transition-all`} style={{ height: `${Math.max(30, idx * 15 + 20)}%` }}>
-                        {item.stock > 0 && <div className="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#006b28] to-[#008735] rounded-t-xl"></div>}
+                        {item.stock > 0 && <div className="absolute bottom-0 w-full h-full bg-primary-gradient rounded-t-xl"></div>}
                       </div>
                     </div>
-                    <span className={`text-[10px] font-bold uppercase tracking-wider ${item.stock > 0 ? 'text-[#006b28]' : 'text-gray-400'}`}>
+                    <span className={`text-[10px] font-black uppercase tracking-wider ${item.stock > 0 ? 'text-[#006b28]' : 'text-gray-400'}`}>
                       {item.stock > 0 ? 'In Stock' : 'Out Stock'}
                     </span>
                   </div>
@@ -127,13 +129,13 @@ export default function ShopDetailsPage() {
                   { icon: PackageCheck, title: "Cylinder Refill", desc: "Precision weighing and safety checks." },
                   { icon: ShoppingBasket, title: "Accessories", desc: "Hoses, regulators, and camping stoves." }
                 ].map((service, idx) => (
-                  <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col gap-6 border border-gray-50">
+                  <div key={idx} className="bg-white p-8 rounded-xl shadow-ambient hover:scale-[1.02] transition-all flex flex-col gap-6 border border-gray-50">
                     <div className="w-14 h-14 rounded-2xl bg-[#006b28]/10 flex items-center justify-center shrink-0">
                       <service.icon className="w-7 h-7 text-[#006b28]" />
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-[#191c1d] mb-2">{service.title}</h3>
-                      <p className="text-sm text-[#505d6f] leading-relaxed">{service.desc}</p>
+                      <p className="text-sm text-[#505d6f] leading-relaxed font-medium opacity-80">{service.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -144,7 +146,7 @@ export default function ShopDetailsPage() {
           {/* Right Column */}
           <div className="lg:col-span-4 space-y-8">
             {/* Delivery Info */}
-            <div className="bg-[#f3f4f5] p-10 rounded-[2.5rem] space-y-8">
+            <div className="bg-[#f3f4f5] p-10 rounded-xl space-y-8 shadow-sm">
               <h3 className="text-xl font-extrabold font-headline flex items-center gap-3 text-[#191c1d]">
                 <ShieldCheck className="w-6 h-6 text-[#006b28]" />
                 Delivery Info
@@ -154,14 +156,14 @@ export default function ShopDetailsPage() {
                   <div className="w-2 h-2 rounded-full bg-[#006b28] mt-2.5 shrink-0"></div>
                   <div>
                     <span className="block font-bold text-[#191c1d] mb-1">Primary Area</span>
-                    <p className="text-sm text-[#505d6f] leading-relaxed">Lekki Phase 1, Phase 2, Ikate, and Oniru.</p>
+                    <p className="text-sm text-[#505d6f] leading-relaxed font-medium opacity-60">Lekki Phase 1, Phase 2, Ikate, and Oniru.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-[#006b28] mt-2.5 shrink-0"></div>
                   <div>
                     <span className="block font-bold text-[#191c1d] mb-1">Standard Fee</span>
-                    <p className="text-sm text-[#505d6f] leading-relaxed">₦1,500 within primary area.</p>
+                    <p className="text-sm text-[#505d6f] leading-relaxed font-medium opacity-60">₦1,500 within primary area.</p>
                   </div>
                 </li>
               </ul>
@@ -178,11 +180,11 @@ export default function ShopDetailsPage() {
             </div>
 
             {/* Promo Card */}
-            <div className="bg-gradient-to-br from-[#fdc003] to-[#785900] p-10 rounded-[2.5rem] text-white relative overflow-hidden group">
+            <div className="bg-gradient-to-br from-[#fdc003] to-[#785900] p-10 rounded-xl text-white relative overflow-hidden group shadow-ambient">
               <div className="relative z-10">
                 <h4 className="text-2xl font-black mb-2">Bulk Discount!</h4>
-                <p className="text-sm mb-6 opacity-90 leading-relaxed font-medium">Get 10% off when you refill 4 or more 12.5kg cylinders.</p>
-                <button className="px-6 py-3 bg-white text-[#785900] rounded-xl text-xs font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-all">
+                <p className="text-sm mb-6 opacity-90 leading-relaxed font-bold">Get 10% off when you refill 4 or more 12.5kg cylinders.</p>
+                <button className="px-6 py-3 bg-white text-[#785900] rounded-xl text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all">
                   Claim Offer
                 </button>
               </div>

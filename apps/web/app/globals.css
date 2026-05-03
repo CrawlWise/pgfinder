@@ -1,34 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8F9FA;
-  --foreground: #191C1D;
-
+  /* Core Palette */
   --primary: #006B28;
   --primary-container: #008735;
   --secondary: #785900;
   --secondary-container: #FDC003;
   --tertiary: #505D6F;
+  --on-surface: #191C1D;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
 
+  /* Tonal Layering */
   --surface: #F8F9FA;
   --surface-container-low: #F3F4F5;
   --surface-container-lowest: #FFFFFF;
+  --surface-container-high: #E7E8E9;
 
-  --radius-sm: 0.25rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 1.5rem;
+  /* Elevation */
+  --ambient-shadow: 0 12px 32px 0 rgba(13, 27, 42, 0.06);
 }
 
 @theme {
-  --font-headline: var(--font-headline), ui-sans-serif, system-ui;
-  --font-body: var(--font-body), ui-sans-serif, system-ui;
-  --font-label: var(--font-body), ui-sans-serif, system-ui;
+  --font-headline: var(--font-headline), "Plus Jakarta Sans", ui-sans-serif;
+  --font-body: var(--font-body), "Manrope", ui-sans-serif;
+  --font-label: "Manrope", ui-sans-serif;
+
+  --radius-xl: 1.5rem;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.75rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--surface);
+  color: var(--on-surface);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
@@ -37,38 +42,103 @@ h1, h2, h3, h4, .font-headline {
   font-family: var(--font-headline);
 }
 
-/* Fluid Energy Framework Utility Classes */
-.glass-shell {
+/* Fluid Energy Components & Rules */
+
+/* The No-Line Rule Utility */
+.no-border {
+  border: none !important;
+}
+
+/* Ghost Border Primaries */
+.ghost-border {
+  border: 1px solid rgba(13, 27, 42, 0.15); /* outline-variant at 15% */
+}
+
+.ghost-border-primary {
+  border: 1px solid rgba(0, 107, 40, 0.2); /* primary at 20% for focus */
+}
+
+/* Primary Gradient Fill */
+.bg-primary-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+}
+
+/* Ambient Shadow */
+.shadow-ambient {
+  box-shadow: var(--ambient-shadow);
+}
+
+/* Floating Navigation (Glass) */
+.glass-nav {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8); /* 80% opacity surface */
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Tertiary Button with Underline Offset */
+.btn-tertiary {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* Leaflet Overrides for Editorial Aesthetic */
+/* Input States */
+.input-minimalist {
+  background-color: var(--surface-container-low);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.input-minimalist:focus {
+  background-color: var(--surface-container-lowest);
+  outline: 1px solid rgba(0, 107, 40, 0.2);
+  box-shadow: none;
+}
+
+.input-error {
+  background-color: rgba(255, 218, 214, 0.3); /* error_container at 30% */
+  color: var(--error);
+}
+
+/* Verified Indicator Chip */
+.chip-verified {
+  background-color: var(--secondary-container);
+  color: #261A00; /* on_secondary_fixed */
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.625rem; /* 10px */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-label);
+}
+
+/* Typography Scales for High Impact */
+.text-display-lg {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.text-display-md {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Leaflet Editorial Overrides */
 .leaflet-container {
   font-family: var(--font-body) !important;
-  background-color: #d9dadb !important;
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
   padding: 0;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(13, 27, 42, 0.12);
+  box-shadow: var(--ambient-shadow);
   border: none;
-}
-
-.custom-popup .leaflet-popup-content {
-  margin: 0;
-  line-height: normal;
 }
 
 .custom-popup .leaflet-popup-tip-container {
