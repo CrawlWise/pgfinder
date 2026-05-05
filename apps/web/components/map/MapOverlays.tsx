@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
-import { Search, LocateFixed, Plus } from "lucide-react";
+import React, { useState } from "react";
+import { Search, LocateFixed, Plus, X } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 
 export default function MapOverlays() {
   const queryClient = useQueryClient();
+  const [showCard, setShowCard] = useState(true);
 
   const handleLocate = () => {
     queryClient.invalidateQueries({ queryKey: ["userLocation"] });
@@ -17,20 +18,31 @@ export default function MapOverlays() {
       
       <div className="flex justify-between items-end w-full">
         {/* Bottom Left Card */}
-        <div className="pointer-events-auto bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl w-[320px] border border-white/20">
-          <h2 className="text-base md:text-lg font-bold text-[#212529] mb-1 tracking-tight">Refill your gas today</h2>
-          <p className="text-xs md:text-sm text-gray-500 mb-4 leading-relaxed">
-            Browse 12+ verified stations near your location with real-time pricing.
-          </p>
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search for a station..."
-              className="w-full pl-9 pr-4 py-2.5 bg-gray-50/80 rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#0B8F3A]/20 focus:bg-white border border-gray-100 transition-all placeholder:text-gray-400"
-            />
+        {showCard ? (
+          <div className="pointer-events-auto bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-xl w-[320px] border border-white/20 relative">
+            <button 
+              onClick={() => setShowCard(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-full"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <h2 className="text-base md:text-lg font-bold text-[#212529] mb-1 tracking-tight pr-6">Refill your gas today</h2>
+            <p className="text-xs md:text-sm text-gray-500 mb-4 leading-relaxed">
+              Browse 12+ verified stations near your location with real-time pricing.
+            </p>
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search for a station..."
+                className="w-full pl-9 pr-4 py-2.5 bg-gray-50/80 rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#0B8F3A]/20 focus:bg-white border border-gray-100 transition-all placeholder:text-gray-400"
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div /> /* Empty spacer to maintain flex layout for right-aligned FABs */
+        )}
 
         {/* Bottom Right FABs */}
         <div className="pointer-events-auto flex flex-col gap-3">

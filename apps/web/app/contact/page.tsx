@@ -6,9 +6,9 @@ import {
   Send,
   ArrowRight,
   Verified,
-  Twitter,
-  Instagram,
-  Facebook,
+  MessageCircle,
+  Camera,
+  Users,
   Leaf
 } from "lucide-react";
 import Link from "next/link";
@@ -137,7 +137,7 @@ export default function ContactPage() {
         <section className="flex flex-col items-center py-20 bg-[#f3f4f5] rounded-xl">
           <h5 className="font-label text-xs font-black uppercase tracking-[0.2em] text-[#505d6f] mb-12">Follow Our Journey</h5>
           <div className="flex gap-12">
-            {[Twitter, Instagram, Facebook].map((Icon, idx) => (
+            {[MessageCircle, Camera, Users].map((Icon, idx) => (
               <Link key={idx} href="#" className="text-[#505d6f] hover:text-[#006b28] transition-all flex flex-col items-center gap-4 group">
                 <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-ambient group-hover:scale-110 transition-all duration-500">
                   <Icon className="w-8 h-8" />

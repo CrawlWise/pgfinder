@@ -1,6 +1,7 @@
+"use client"
+
 import React from 'react'
 import dynamic from 'next/dynamic'
-import NavbarMain from '@/components/navbar/navbarMain'
 import MapOverlays from '@/components/map/MapOverlays'
 
 const InteractiveMap = dynamic(() => import('@/components/map/InteractiveMap'), {
@@ -15,14 +16,11 @@ const InteractiveMap = dynamic(() => import('@/components/map/InteractiveMap'), 
 
 export default function Page() {
   return (
-    <main className="relative h-screen w-full overflow-hidden flex flex-col bg-[#e5eedd]">
-      <div className="relative z-[2000] bg-white">
-        <NavbarMain />
-      </div>
-      <div className="flex-1 relative z-[1000]">
+    <div className="relative h-full w-full overflow-hidden flex flex-col">
+      <div className="flex-1 relative z-[1000] min-h-[calc(100vh-80px)]">
         <InteractiveMap />
         <MapOverlays />
       </div>
-    </main>
+    </div>
   )
 }
